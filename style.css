@@ -35,13 +35,13 @@ html{
     font-weight: 700;
     color: #757575;
 }
-.top.screen{
+.top .screen{
     position:relative;
     width: 100%;
     top: 20%;
     height: 80%;
 }
-.screen >div{
+.screen > div{
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -98,7 +98,7 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.5;
+    transition: background-color 0.5s;
 
 }
 .keys .column span:hover, .operators span:hover{
