@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 html{
-    font-family:"Roboto", "Noto" , "helvetica", snas-serif;
+    font-family:"Roboto", "Noto" , "helvetica", sans-serif;
     font-size: 14px;
     background-color:#3498DB;
     height: 100%;
@@ -12,7 +12,7 @@ html{
 .calculator {
     width: 350px;
     height: auto;
-    margin: 70 auto 0;
+    margin: 70px auto 0;
     overflow: hidden;
     box-shadow: 4px 4px rgba(0, 0, 0, 2);
 }
@@ -103,6 +103,9 @@ align-items: center;
 }
 .keys .column span:hover, .operators span:hover{
     background-color: rgba(0, 0, 0, 2);
+}
+.keys .column span{
+    font-size:25px;
 }
 .operators{
     width: 20%;
