@@ -45,23 +45,63 @@ function handleKeyPress(e){
     }
 
 }
-function evaluate(e){
+function evaluate(e) {
     const key = e.target.dataset.key;
     const lastchar=
-    operation[operation.length-1]
+    operation[operation.length-1];
 
-    if (key === "=" && operators.indexof(lastchar)!==-1){
+    if (key === "=" && operations.indexof(lastchar)!==-1){
         operation=operation.slice(0,-10);
     }
 
-    if(operation.lenght === 0){
+    if(operation.length === 0){
         answer ="";
         result.innerHTML=answer;
         return;
     }
     
  try{
-        if(operation[0]==="0" && operation [1] !=="." && operation.lenght >1 )
-        {operation = operation.slice(1)}
-    
+        if(operation[0]==="0" && operation[1] !=="." && operation.length > 1 ) 
+        operation = operation.slice(1);
+     
+const final = operation.replace(/x/g,"*").replace(///g,"/");
+    answer= +(eval(final)).toFixed(5));
+
+    if(key === "="){
+        decimalAdded= false
+        operation= '${answer}';
+        answer= "";
+        input.innerHTML= operation;
+        result.innerHTML=answer;
+        return;
+    }
+
+    result.innerHTML= answer;
+
+} catch (e){
+    if(keys==="="){
+        decimalAdded= false;
+        input.innerHTML= '<span class ="error">${operation}</span>';
+        result.innerHTML= '<spanclass="error">Bad Expression</span>';
+
+    }
+    console.log(e);
+  }
 }
+
+function clearinput (e){
+    if(e.ctrlkey){
+        operation= "";
+        answer= "";
+        input.innerHTML= operation;
+        result.innerHTML= answer;
+        rerturn;
+    }
+    operation= operation.slice(0,-1);
+    input.innerHTML= operation;
+}
+deleteBtn.addEventListener("click",clearinput);
+keys.forEach(key=> {keyaddEventlistener("click",handlekeyPress);
+key.addEventListener("click",evaluate);
+});
+    
