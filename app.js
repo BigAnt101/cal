@@ -1,17 +1,17 @@
-"use strict"
+"use strict";
 
 const input =
 document.querySelector(".input");
 const result =
 document.querySelector(".result");
 const deleteBtn=
-document.querySelector("delete");
+document.querySelector(".delete");
 const keys =
 document.querySelectorAll(".bottom span ")
 
 let operation ="";
 let answer;
-let decimalAdded=false
+let decimalAdded=false;
 
 const operations=["+","-","x","/"];
 
@@ -20,10 +20,10 @@ function handleKeyPress(e){
     const lastchar=
     operation[operation.length-1]
 
-    if(key ==="="){
+    if(key === "="){
         return;
     }
-    if (key ==="." && decimalAdded){
+    if (key === "." && decimalAdded){
         return;
     }
     if (operators.indexof(key)!==-1){
@@ -40,10 +40,15 @@ function handleKeyPress(e){
     }
     if (operators.indexof(lastchar)!== -1 && operators.indexof(key)!==-1){
         operation=operation.replace(/.$/,key);
-        input.innerHTM=operation;
+        input.innerHTML=operation;
         return;
     }
-
+    if(key){
+        if(key === ".")decimalAdded= true;
+        operation += key;
+        input.innerHTML=operation;
+        return;
+    }
 }
 function evaluate(e) {
     const key = e.target.dataset.key;
@@ -101,7 +106,7 @@ function clearinput (e){
     input.innerHTML= operation;
 }
 deleteBtn.addEventListener("click",clearinput);
-keys.forEach(key=> {keyaddEventlistener("click",handlekeyPress);
+keys.forEach(key=> {keyaddEventlistener("click",handleKeyPress);
 key.addEventListener("click",evaluate);
 });
     
